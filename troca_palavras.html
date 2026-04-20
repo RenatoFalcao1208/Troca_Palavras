@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Descubra a Palavra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Jogo: Descubra a Palavra</h1>
+
+  <!-- Jogador 1 -->
+  <input type="password" id="palavra" placeholder="Digite a palavra">
+  <input type="text" id="dica" placeholder="Digite a dica">
+  <button onclick="iniciarJogo()">Enviar</button>
+
+  <hr>
+
+  <p>Dica: <span id="mostrarDica"></span></p>
+  <p>Palavra: <span id="mostrarPalavra"></span></p>
+
+  <!-- Jogador 2 -->
+  <button onclick="chutarLetra()">Chutar letra</button>
+
+  <script>
+
+    let palavraSecreta = "";
+    let palavraOculta = "";
+
+    function iniciarJogo() {
+      // 1. Pegar valor da palavra e dica
+      // DICA: use .value
+
+        palavraSecreta = document.getElementById('palavra').value
+        var dica = document.getElementById('dica').value
+        
+      // 2. Converter para minúsculo
+      // DICA: use toLowerCase()
+
+        var dicaMinuscula = dica.toLowerCase()
+        palavraSecreta = palavraSecreta.toLowerCase()
+
+      // 3. Criar os traços (_ _ _)
+      // DICA: use repeat() ou loop
+
+        palavraOculta = palavraSecreta.replace(/[^ ]/g, "_")
+
+      // 4. Mostrar dica na tela
+
+        document.getElementById('mostrarDica').innerHTML = dicaMinuscula
+
+      // 5. Mostrar palavra oculta na tela
+
+        document.getElementById('mostrarPalavra').innerHTML = palavraOculta
+
+    }
+
+    function chutarLetra() {
+      // 1. Pedir uma letra com prompt
+
+        var letraChute = prompt("Escolha uma letra para fazer seu chute!")
+
+      // 2. Converter para minúsculo
+
+        var letraMinuscula = letraChute.toLowerCase()
+
+      // 3. Verificar se a letra existe
+      // DICA: use includes()
+
+        var confirmação = palavraSecreta.includes(letraMinuscula)
+
+      // 4. Se existir:
+      // substituir os "_" pela letra correta
+      // DICA: pode usar replace() ou loop
+
+        if(confirmação){
+            let novaPalavraOculta = "";
+
+            // Loop simples: vamos construir a palavra de novo letra por letra
+            for (let i = 0; i < palavraSecreta.length; i++) {
+                if (palavraSecreta[i] === letraMinuscula) {
+                    // Se a letra daquela posição for a que eu chutei, eu coloco ela
+                    novaPalavraOculta += letraMinuscula;
+                } else {
+                    // Se não for, eu mantenho o que já estava lá (seja _ ou outra letra já descoberta)
+                    novaPalavraOculta += palavraOculta[i];
+                }
+            }
+            
+            palavraOculta = novaPalavraOculta;
+        }else{
+
+            alert("Essa letra não está na palavra!")
+
+        }
+
+      
+
+      // 5. Atualizar a palavra na tela
+
+      document.getElementById('mostrarPalavra').innerHTML = palavraOculta
+
+    }
+
+  </script>
+
+</body>
+</html>

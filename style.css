@@ -1,0 +1,118 @@
+/* Estilos Gerais */
+    :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #f39c12;
+      --bg-color: #f4f7f6;
+      --text-color: #333;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Container Principal */
+    .container {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    /* Inputs e Botões */
+    .setup-section, .game-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    button {
+      padding: 12px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #eee;
+      margin: 30px 0;
+    }
+
+    /* Área do Jogo */
+    .info-box {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    #mostrarDica {
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+
+    #mostrarPalavra {
+      display: block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 32px;
+      letter-spacing: 8px;
+      margin-top: 10px;
+      color: var(--primary-color);
+      font-weight: bold;
+      word-break: break-all;
+    }
+
+    .btn-chute {
+      background-color: var(--secondary-color);
+    }
+
+    .btn-chute:hover {
+      background-color: #e67e22;
+    }
